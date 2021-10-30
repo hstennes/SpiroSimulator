@@ -1,8 +1,6 @@
 package com.spirograph.design;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
 
 import com.spirograph.main.SpiroSimulator;
@@ -59,6 +57,8 @@ public class Spirograph{
 		g.setColor(Color.BLUE);
 		mainGear.render(g, center);
 		g.setColor(Color.RED);
+		((Graphics2D) g).setStroke(new BasicStroke(1));
+		((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		PolylineInfo polyline = createPolyline(center);
 		for(int i = 0; i < polyline.getXPoints().length - 1; i++) {
 			g.setColor(designColors.get(i));
